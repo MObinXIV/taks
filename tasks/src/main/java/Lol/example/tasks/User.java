@@ -23,8 +23,8 @@ public class User {
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
-//    private UUID id = UUID.randomUUID();  // Ensure UUID is generated
-    private UUID id;
+    private UUID id = UUID.randomUUID();  // Ensure UUID is generated
+//    private UUID id;
     @Column(
             name = "first_name",
             nullable = false,
