@@ -17,8 +17,8 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public void addUser(@RequestBody User user) {
-        userService.addNewUser(user);
+    public User addUser(@RequestBody User user) {
+       return userService.addNewUser(user);
     }
 
     @GetMapping("/")
@@ -33,9 +33,9 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public void updateUser(@PathVariable("id") UUID id,@RequestBody User user)
+    public User updateUser(@PathVariable("id") UUID id,@RequestBody User user)
     {
-        userService.patchUser(id, user);
+        return userService.patchUser(id, user);
     }
 
     @DeleteMapping("/{id}")
