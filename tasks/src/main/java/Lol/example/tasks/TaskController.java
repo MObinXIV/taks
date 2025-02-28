@@ -2,6 +2,7 @@ package Lol.example.tasks;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -17,6 +18,12 @@ public class TaskController {
     @PostMapping("/user/{userId}")
     public Tasks createTaskForUser(@PathVariable UUID userId, @RequestBody Tasks task) {
        return  taskService.CreateTask(userId, task);
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<Tasks> getAllTasksForUser(@PathVariable UUID userId) {
+
+        return taskService.getTaskForUser(userId);
     }
 
 }
