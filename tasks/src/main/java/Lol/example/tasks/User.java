@@ -2,17 +2,18 @@ package Lol.example.tasks;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.awt.print.Book;
+import java.util.List;
 import java.util.UUID;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+
 @Entity(name = "AppUser")
 @Table(name = "app_user",
 uniqueConstraints = {
@@ -23,6 +24,7 @@ public class User {
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
+
     private UUID id = UUID.randomUUID();  // Ensure UUID is generated
 //    private UUID id;
     @Column(
@@ -42,10 +44,19 @@ public class User {
 
             name="email",
             nullable = false,
-            columnDefinition = "TEXT"
+            columnDefinition = "TEXT",
+            updatable = false
     )
     private  String email;
     @Column(name = "password", nullable = false, length = 255)
     private String password;  // Store hashed passwords
+
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY
+    )
+    private List<Tasks> tasks;
 
 }
