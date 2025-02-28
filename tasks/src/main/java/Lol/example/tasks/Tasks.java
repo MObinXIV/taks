@@ -18,6 +18,13 @@ public class Tasks {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String title;
+    @Column(columnDefinition = "TEXT")
+    private String description;
+    @Column(nullable = false)
+    private boolean completed = false;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false
     , referencedColumnName = "id",
