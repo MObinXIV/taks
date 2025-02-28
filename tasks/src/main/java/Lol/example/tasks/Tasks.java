@@ -1,6 +1,7 @@
 package Lol.example.tasks;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class Tasks {
     private String description;
     @Column(nullable = false)
     private boolean completed = false;
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false
     , referencedColumnName = "id",
