@@ -1,5 +1,6 @@
 package Lol.example.tasks;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,4 +27,17 @@ public class TaskController {
         return taskService.getTaskForUser(userId);
     }
 
+    @PatchMapping("/user/{userId}/tasks/{taskId}")
+    public Tasks updateTask(
+            @PathVariable UUID userId,
+            @PathVariable UUID taskId,
+            @RequestBody Tasks task) {
+        return taskService.patchTask(userId, taskId, task);
+    }
+
+    @DeleteMapping("/user/{userId}/tasks/{taskId}")
+    public ResponseEntity<Void> deleteTask(@PathVariable UUID userId, @PathVariable UUID taskId) {
+        taskService.deleteTask(userId, taskId);
+        return ResponseEntity.noContent().build(); // HTTP 204 No Content (successful deletion)
+    }
 }
