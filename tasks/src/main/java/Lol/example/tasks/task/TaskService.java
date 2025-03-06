@@ -1,5 +1,7 @@
-package Lol.example.tasks;
+package Lol.example.tasks.task;
 
+import Lol.example.tasks.user.User;
+import Lol.example.tasks.user.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

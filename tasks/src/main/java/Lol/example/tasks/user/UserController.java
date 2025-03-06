@@ -1,4 +1,4 @@
-package Lol.example.tasks;
+package Lol.example.tasks.user;
 
 
 import org.springframework.web.bind.annotation.*;

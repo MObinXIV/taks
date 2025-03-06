@@ -1,14 +1,12 @@
-package Lol.example.tasks;
+package Lol.example.tasks.user;
 
 
+import Lol.example.tasks.task.Tasks;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.awt.print.Book;
 import java.util.List;
 import java.util.UUID;
-
-import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Data
 @AllArgsConstructor

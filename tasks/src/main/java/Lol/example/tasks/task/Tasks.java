@@ -1,6 +1,7 @@
-package Lol.example.tasks;
+package Lol.example.tasks.task;
 
 
+import Lol.example.tasks.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

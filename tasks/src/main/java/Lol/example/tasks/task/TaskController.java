@@ -1,4 +1,4 @@
-package Lol.example.tasks;
+package Lol.example.tasks.task;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
