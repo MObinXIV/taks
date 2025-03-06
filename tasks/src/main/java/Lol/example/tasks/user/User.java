@@ -15,7 +15,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Builder
 @Entity(name = "AppUser")
 @Table(name = "app_user",
 uniqueConstraints = {

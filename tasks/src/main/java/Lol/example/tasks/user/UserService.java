@@ -20,13 +20,7 @@ public class UserService {
     public Optional<User> getUserById( UUID id) {
         return userRepository.findById(id);
     }
-    public User addNewUser( User user) {
-        Optional<User> userOptional = userRepository.findById(user.getId());
-        if (userOptional.isPresent()) {
-            throw new IllegalArgumentException("User with id " + user.getId() + " already exists");
-        }
-        return userRepository.save(user);
-    }
+
     public List<User> getUsers() {
         return userRepository.findAll();
     }
